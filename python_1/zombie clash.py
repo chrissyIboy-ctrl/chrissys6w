@@ -1,37 +1,39 @@
+
+
 has_girl = False  # Tracks whether the girl joins your team
 
-def first_challenge():
+def first_challenge(): # tells you the first challenge and asks to pick a b or c
     print("A zombie approaches you... What do you do?")
     print("A) Punch it")
     print("B) Kick it")
     print("C) Run away")
 
-    choice = input("Choose A, B, or C: ").strip().upper()
+    choice = input("Choose A, B, or C: ").strip().upper() #you have to pick one of the following and it will run a command depending what you chose
 
-    if choice == "A":
+    if choice == "A": #if you choose a it runs this command
         print("You punch the zombie... it gets mad and kills you!")
         print("You died. Game over.\n")
         start_game()
-    elif choice == "B":
+    elif choice == "B": # if you choose b it runs this command
         print("You kick the zombie and break its legs. It can't move!")
         print("You survived and move on with the game!")
         second_challenge()
-    elif choice == "C":
+    elif choice == "C": 
         print("You run away, trip, and fall on a machete...")
         print("You died. Game over.\n")
-        start_game()
+        start_game() # if you choose b it runs this command
     else:
         print("Invalid choice. Please try again.")
-        first_challenge()
+        first_challenge() # if anything but a, b, or c it will run this
 
-def second_challenge():
+def second_challenge(): #the command sends the next challenge 
     print("\n You see a tied-up little girl in the middle of the road.")
     print("What do you do?")
     print("A) Beat her up")
     print("B) Help her")
     print("C) Do nothing and leave")
 
-    choice = input("Choose A, B, or C: ").strip().upper()
+    choice = input("Choose A, B, or C: ").strip().upper() #you have to pick one of the following and it will run a command depending what you chose
 
     if choice == "A":
         print("\n The girl turns into a giant ogre and kills you!")
@@ -52,7 +54,7 @@ def second_challenge():
         second_challenge()
 
 def third_challenge():
-    print("\n🏃 You're getting chased by 100 zombies, some are fast and some are giants.")
+    print("\n You're getting chased by 100 zombies, some are fast and some are giants.")
     print("What do you do?")
     print("A) Keep running")
     print("B) Hide")
@@ -133,7 +135,7 @@ def fifth_challenge():
         fifth_challenge()
 
 def sixth_challenge():
-    print("\n🧟 You see the little girl from earlier… but now she's a zombie!")
+    print("\n You see the little girl from earlier… but now she's a zombie!")
     print("What do you do?")
     print("A) Beat her up and throw her off the building")
     print("B) Look for a cure")
@@ -226,17 +228,17 @@ def eighth_challenge():
             print(" You died. Game over.\n")
             start_game()
         elif choice == "B":
-            print("\n🏃 You run but trip...")
-            print("🧠 Crack your head open and your brain falls out.")
-            print("💀 You died. Game over.\n")
+            print("\n You run but trip...")
+            print("Crack your head open and your brain falls out.")
+            print("You died. Game over.\n")
             start_game()
         elif choice == "C":
-            print("\n🧟 You pretend to be a zombie...")
-            print("😈 They see through your disguise and painfully kill you.")
-            print("💀 You died. Game over.\n")
+            print("\n You pretend to be a zombie...")
+            print(" They see through your disguise and painfully kill you.")
+            print("You died. Game over.\n")
             start_game()
         else:
-            print("\n⚠️ Invalid choice. Please try again.")
+            print("\n Invalid choice. Please try again.")
             eighth_challenge()
 
 def start_game():
@@ -245,11 +247,11 @@ def start_game():
 
     print("🎮 Welcome to the Game!")
 
-    # Get player's name
+    # Gets the player's name
     name = input("What's your name? ")
     print(f"Hello, {name}!")
 
-    # Get age
+    # Gets the age of the player
     age = input(f"How old are you, {name}? ")
 
     if age.isdigit():
@@ -260,7 +262,7 @@ def start_game():
         else:
             print(f" You're old enough, {name}! Let's continue...\n")
 
-            # Get gender
+            # Gets the gender of the player
             print("What is your gender?")
             print("1. Male")
             print("2. Female")
@@ -272,13 +274,13 @@ def start_game():
                 pronoun = "she/her"
             else:
                 pronoun = "they/them"
-                print("⚠️ Invalid choice. You'll be referred to as they/them.")
+                print(" Invalid choice. You'll be referred to as they/them.")
 
             print(f"\nAlright {name}, you'll be referred to as {pronoun}. Let's begin the game!\n")
             first_challenge()
     else:
-        print(f"⚠️ {name}, please enter a valid number for your age.")
+        print(f" {name}, please enter a valid number for your age.")
         start_game()
 
-# Start the game
+# Starts the game
 start_game()
