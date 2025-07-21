@@ -1,286 +1,249 @@
+# Global variable to track if the little girl joins your team
+has_girl = False
 
-
-has_girl = False  # Tracks whether the girl joins your team
-
-def first_challenge(): # tells you the first challenge and asks to pick a b or c
-    print("A zombie approaches you... What do you do?")
-    print("A) Punch it")
-    print("B) Kick it")
-    print("C) Run away")
-
-    choice = input("Choose A, B, or C: ").strip().upper() #you have to pick one of the following and it will run a command depending what you chose
-
-    if choice == "A": #if you choose a it runs this command
-        print("You punch the zombie... it gets mad and kills you!")
-        print("You died. Game over.\n")
-        start_game()
-    elif choice == "B": # if you choose b it runs this command
-        print("You kick the zombie and break its legs. It can't move!")
-        print("You survived and move on with the game!")
-        second_challenge()
-    elif choice == "C": 
-        print("You run away, trip, and fall on a machete...")
-        print("You died. Game over.\n")
-        start_game() # if you choose b it runs this command
-    else:
-        print("Invalid choice. Please try again.")
-        first_challenge() # if anything but a, b, or c it will run this
-
-def second_challenge(): #the command sends the next challenge 
-    print("\n You see a tied-up little girl in the middle of the road.")
-    print("What do you do?")
-    print("A) Beat her up")
-    print("B) Help her")
-    print("C) Do nothing and leave")
-
-    choice = input("Choose A, B, or C: ").strip().upper() #you have to pick one of the following and it will run a command depending what you chose
-
-    if choice == "A":
-        print("\n The girl turns into a giant ogre and kills you!")
-        print(" You died. Game over.\n")
-        start_game()
-    elif choice == "B":
-        print("\ You help the little girl. She says 'Thank you!'")
-        print(" But then she eats you and turns you into a zombie!")
-        print(" You died. Game over.\n")
-        start_game()
-    elif choice == "C":
-        print("\n You walk away, leaving the little girl.")
-        print(" She gets jumped by zombies and dies.")
-        print(" You survive and continue the game!\n")
-        third_challenge()
-    else:
-        print("\n Invalid choice. Please try again.")
-        second_challenge()
-
-def third_challenge():
-    print("\n You're getting chased by 100 zombies, some are fast and some are giants.")
-    print("What do you do?")
-    print("A) Keep running")
-    print("B) Hide")
-    print("C) Fight back")
-
-    choice = input("Choose A, B, or C: ").strip().upper()
-
-    if choice == "A":
-        print("\n You try to keep running but run out of energy.")
-        print(" A fast zombie tackles you and rips your face off.")
-        print(" You died. Game over.\n")
-        start_game()
-    elif choice == "B":
-        print("\n You successfully hide in an alleyway.")
-        print(" You passed the challenge and survive!\n")
-        fourth_challenge()
-    elif choice == "C":
-        print("\n You fight back and kill 5 zombies,")
-        print(" but then you get stomped by a giant zombie.")
-        print(" You died. Game over.\n")
-        start_game()
-    else:
-        print("\n Invalid choice. Please try again.")
-        third_challenge()
-
-def fourth_challenge():
-    print("\n You find an abandoned building. What do you do?")
-    print("A) Go in")
-    print("B) Keep walking")
-    print("C) Start dancing")
-
-    choice = input("Choose A, B, or C: ").strip().upper()
-
-    if choice == "A":
-        print("\n You go in and look around cautiously.")
-        print(" It's safe! You rest and survive!\n")
-        fifth_challenge()
-    elif choice == "B":
-        print("\n A group of zombies catch you off guard!")
-        print(" They rip your limbs off and eat you alive.")
-        print(" You died. Game over.\n")
-        start_game()
-    elif choice == "C":
-        print("\nYou start dancing in the open like it's a party...")
-        print(" The little girl from earlier falls off the roof onto you.")
-        print(" You died. Game over.\n")
-        start_game()
-    else:
-        print("\n Invalid choice. Please try again.")
-        fourth_challenge()
-
-def fifth_challenge():
-    print("\n You see a bunch of zombies in the room with you!")
-    print("What do you do?")
-    print("A) Run to the roof")
-    print("B) Stay back and fight")
-    print("C) Run out the building")
-
-    choice = input("Choose A, B, or C: ").strip().upper()
-
-    if choice == "A":
-        print("\n You quickly run to the roof and outrun them.")
-        print(" You survive again!\n")
-        sixth_challenge()
-    elif choice == "B":
-        print("\n You fight them all off like a champ...")
-        print(" But notice a cut on your side. You bleed out and die.")
-        print("You died. Game over.\n")
-        start_game()
-    elif choice == "C":
-        print("\n You run out the building into the street...")
-        print(" The girl from earlier falls off the building onto you.")
-        print(" You feel so guilty that you cut your own neck.")
-        print(" You died. Game over.\n")
-        start_game()
-    else:
-        print("\n Invalid choice. Please try again.")
-        fifth_challenge()
-
-def sixth_challenge():
-    print("\n You see the little girl from earlier… but now she's a zombie!")
-    print("What do you do?")
-    print("A) Beat her up and throw her off the building")
-    print("B) Look for a cure")
-    print("C) Go back inside")
-
-    choice = input("Choose A, B, or C: ").strip().upper()
-
-    if choice == "A":
-        print("\n You throw her off the building...")
-        print(" But she grabs you on the way down and takes you with her.")
-        print("You died. Game over.\n")
-        start_game()
-    elif choice == "B":
-        print("\nYou search frantically... and find a cure!")
-        print(" You cure the little girl and save her life!")
-        print(" You survive and continue your journey!\n")
-        seventh_challenge()
-    elif choice == "C":
-        print("\n You go back inside...")
-        print(" You trip down the stairs and can't move.")
-        print(" Zombie monkeys show up and beat you up.")
-        print(" You died. Game over.\n")
-        start_game()
-    else:
-        print("\n Invalid choice. Please try again.")
-        sixth_challenge()
-
-def seventh_challenge():
-    global has_girl
-    print("\n The little girl thanks you and asks to join your team.")
-    print("What do you do?")
-    print("A) Yes")
-    print("B) No")
-    print("C) Kill her")
-
-    choice = input("Choose A, B, or C: ").strip().upper()
-
-    if choice == "A":
-        has_girl = True
-        print("\n You agree and let her join.")
-        print(" She joins your team. You both survive together!\n")
-        eighth_challenge()
-    elif choice == "B":
-        has_girl = False
-        print("\n You say no. She walks away...")
-        print(" Then trips, hits her head, and dies.")
-        print(" You survive, but it's kinda awkward.\n")
-        eighth_challenge()
-    elif choice == "C":
-        print("\n You try to kill her...")
-        print(" But you miss and accidentally stab yourself in the heart.")
-        print(" You died. Game over.\n")
-        start_game()
-    else:
-        print("\n Invalid choice. Please try again.")
-        seventh_challenge()
-
-def eighth_challenge():
-    global has_girl
-    print("\n You see a bunch of zombies ahead...")
-    print("What do you do?")
-    print("A) Fight them")
-    print("B) Run away")
-    print("C) Pretend to be a zombie")
-
-    choice = input("Choose A, B, or C: ").strip().upper()
-
-    if has_girl:
-        if choice == "A":
-            print("\n You and the girl fight fiercely...")
-            print(" You beat all the zombies and steal their swords!")
-            print(" You survive together. Nice job!\n")
-        elif choice == "B":
-            print("\n You both try to run...")
-            print(" But trip, fall, and get eaten alive.")
-            print(" You died. Game over.\n")
-            start_game()
-        elif choice == "C":
-            print("\n You pretend to be zombies...")
-            print(" But the horde notices you're not one of them and eats you both.")
-            print(" You died. Game over.\n")
-            start_game()
-        else:
-            print("\n Invalid choice. Please try again.")
-            eighth_challenge()
-    else:
-        if choice == "A":
-            print("\n You try to fight them alone...")
-            print(" They jump on you and cut you up with swords.")
-            print(" You died. Game over.\n")
-            start_game()
-        elif choice == "B":
-            print("\n You run but trip...")
-            print("Crack your head open and your brain falls out.")
-            print("You died. Game over.\n")
-            start_game()
-        elif choice == "C":
-            print("\n You pretend to be a zombie...")
-            print(" They see through your disguise and painfully kill you.")
-            print("You died. Game over.\n")
-            start_game()
-        else:
-            print("\n Invalid choice. Please try again.")
-            eighth_challenge()
-
+# Function to start the game and collect player info
 def start_game():
-    global has_girl
-    has_girl = False  # Reset each time game restarts
+    global has_girl  # Access the global variable to modify it here
+    has_girl = False  # Reset the girl joining status at the start of the game
 
-    print("🎮 Welcome to the Game!")
+    print("Welcome to the Zombie Survival Game!")  # Display welcome message
 
-    # Gets the player's name
-    name = input("What's your name? ")
-    print(f"Hello, {name}!")
+    name = input("What's your name? ")  # Ask player for their name and store it
+    print(f"Hello, {name}!")  # Greet the player by their name
 
-    # Gets the age of the player
-    age = input(f"How old are you, {name}? ")
+    age = input("How old are you? ")  # Ask for player's age as text input
 
-    if age.isdigit():
-        age = int(age)
-        if age < 14:
-            print(f" Sorry {name}, you are the youngest person ever also you cant play munk.")
-            return
+    if age.isdigit():  # Check if the input is all digits (valid number)
+        age = int(age)  # Convert the age from string to integer
+        if age < 14:  # Check if the player is younger than 14
+            print("Sorry, you're too young to play.")  # Deny access for underage
+            return  # End the function and game here
         else:
-            print(f" You're old enough, {name}! Let's continue...\n")
+            print("You're old enough to play.")  # Confirm player is old enough
 
-            # Gets the gender of the player
-            print("What is your gender?")
-            print("1. Male")
-            print("2. Female")
+            print("What is your gender?")  # Ask for gender options
+            print("1. Male")  # Option 1: Male
+            print("2. Female")  # Option 2: Female
+            gender = input("Enter 1 or 2: ")  # Get the gender choice input
 
-            gender = input("Enter 1 or 2: ")
-            if gender == "1":
-                pronoun = "he/him"
-            elif gender == "2":
-                pronoun = "she/her"
+            if gender == "1":  # If player chose Male
+                pronoun = "he/him"  # Set pronoun to he/him
+            elif gender == "2":  # If player chose Female
+                pronoun = "she/her"  # Set pronoun to she/her
             else:
-                pronoun = "they/them"
-                print(" Invalid choice. You'll be referred to as they/them.")
+                pronoun = "they/them"  # Invalid input: set pronoun to they/them
+                print("Invalid choice. You will be referred to as they/them.")  # Notify player
 
-            print(f"\nAlright {name}, you'll be referred to as {pronoun}. Let's begin the game!\n")
-            first_challenge()
+            print(f"Let's begin, {name}. You will be referred to as {pronoun}.")  # Show pronoun info
+            first_challenge()  # Start the first challenge
     else:
-        print(f" {name}, please enter a valid number for your age.")
-        start_game()
+        print("Please enter a valid number for your age.")  # Error message for invalid age input
+        start_game()  # Restart game input process
 
-# Starts the game
+# Function for the first challenge: zombie attacks
+def first_challenge():
+    print("\nA zombie approaches you... What do you do?")  # Describe the situation
+    print("A) Punch it")  # Option A
+    print("B) Kick it")  # Option B
+    print("C) Run away")  # Option C
+    choice = input("Choose A, B, or C: ").strip().upper()  # Get choice, remove spaces, capitalize
+
+    if choice == "A":  # If player chooses to punch
+        print("You punch the zombie... it gets mad and kills you!")  # Consequence message
+        print("You died. Game over.")  # Player death message
+        start_game()  # Restart game
+    elif choice == "B":  # If player chooses to kick
+        print("You kick the zombie and break its legs. It can't move!")  # Success message
+        print("You survived and move on.")  # Continue message
+        second_challenge()  # Proceed to second challenge
+    elif choice == "C":  # If player chooses to run away
+        print("You run away, trip, and fall on a machete.")  # Failure message
+        print("You died. Game over.")  # Death message
+        start_game()  # Restart game
+    else:
+        print("Invalid choice.")  # Invalid input message
+        first_challenge()  # Ask again for input
+
+# Function for the second challenge: tied-up girl
+def second_challenge():
+    print("\nYou see a tied-up little girl in the road.")  # Scenario description
+    print("A) Beat her up")  # Option A
+    print("B) Help her")  # Option B
+    print("C) Do nothing and leave")  # Option C
+    choice = input("Choose A, B, or C: ").strip().upper()  # Get and sanitize input
+
+    if choice == "A":  # Player beats girl
+        print("The girl turns into a giant ogre and kills you!")  # Consequence
+        print("You died. Game over.")  # Death message
+        start_game()  # Restart game
+    elif choice == "B":  # Player helps girl
+        print("You help the girl. She says thank you... and eats you.")  # Negative outcome
+        print("You died. Game over.")  # Death message
+        start_game()  # Restart game
+    elif choice == "C":  # Player leaves girl
+        print("You walk away. She gets attacked by zombies.")  # Narrative detail
+        print("You survive and continue.")  # Continue message
+        third_challenge()  # Proceed to third challenge
+    else:
+        print("Invalid choice.")  # Invalid input
+        second_challenge()  # Repeat input prompt
+
+# Function for the third challenge: zombie chase
+def third_challenge():
+    print("\nYou're being chased by 100 zombies.")  # Scenario setup
+    print("A) Keep running")  # Option A
+    print("B) Hide")  # Option B
+    print("C) Fight back")  # Option C
+    choice = input("Choose A, B, or C: ").strip().upper()  # Get choice input
+
+    if choice == "A":  # Keep running
+        print("You run out of energy. A fast zombie kills you.")  # Consequence
+        print("You died. Game over.")  # Death message
+        start_game()  # Restart game
+    elif choice == "B":  # Hide
+        print("You hide successfully. You survive.")  # Success
+        fourth_challenge()  # Proceed
+    elif choice == "C":  # Fight
+        print("You fight back but get stomped by a giant zombie.")  # Death scenario
+        print("You died. Game over.")  # Death message
+        start_game()  # Restart
+    else:
+        print("Invalid choice.")  # Input error
+        third_challenge()  # Repeat input
+
+# Function for the fourth challenge: abandoned building
+def fourth_challenge():
+    print("\nYou find an abandoned building.")  # Description
+    print("A) Go in")  # Option A
+    print("B) Keep walking")  # Option B
+    print("C) Start dancing")  # Option C
+    choice = input("Choose A, B, or C: ").strip().upper()  # Input
+
+    if choice == "A":  # Enter building
+        print("You go in and it's safe. You rest and survive.")  # Success
+        fifth_challenge()  # Continue
+    elif choice == "B":  # Keep walking
+        print("Zombies catch you off guard and eat you.")  # Death scenario
+        print("You died. Game over.")  # Death message
+        start_game()  # Restart
+    elif choice == "C":  # Dance
+        print("You start dancing. The girl from earlier falls off the roof onto you.")  # Death scenario
+        print("You died. Game over.")  # Death message
+        start_game()  # Restart
+    else:
+        print("Invalid choice.")  # Invalid input
+        fourth_challenge()  # Retry input
+
+# Function for the fifth challenge: zombies inside building
+def fifth_challenge():
+    print("\nYou see a bunch of zombies inside with you.")  # Scene setup
+    print("A) Run to the roof")  # Option A
+    print("B) Stay and fight")  # Option B
+    print("C) Run out the building")  # Option C
+    choice = input("Choose A, B, or C: ").strip().upper()  # Input
+
+    if choice == "A":  # Run to roof
+        print("You run to the roof and survive.")  # Success
+        sixth_challenge()  # Continue
+    elif choice == "B":  # Stay and fight
+        print("You fight like a champ but bleed out.")  # Death outcome
+        print("You died. Game over.")  # Death message
+        start_game()  # Restart
+    elif choice == "C":  # Run outside
+        print("The girl falls off the roof onto you again. You feel guilty and die.")  # Death scenario
+        print("You died. Game over.")  # Death message
+        start_game()  # Restart
+    else:
+        print("Invalid choice.")  # Invalid input
+        fifth_challenge()  # Retry
+
+# Function for the sixth challenge: zombie girl encounter
+def sixth_challenge():
+    print("\nYou see the little girl again... but she's a zombie.")  # Description
+    print("A) Beat her up and throw her off the building")  # Option A
+    print("B) Look for a cure")  # Option B
+    print("C) Go back inside")  # Option C
+    choice = input("Choose A, B, or C: ").strip().upper()  # Input
+
+    if choice == "A":  # Beat and throw off building
+        print("You throw her off the building but she takes you with her.")  # Death scenario
+        print("You died. Game over.")  # Death message
+        start_game()  # Restart
+    elif choice == "B":  # Find cure
+        print("You find a cure and save her. You both survive.")  # Success
+        seventh_challenge()  # Continue
+    elif choice == "C":  # Go back inside
+        print("You trip down the stairs. Zombie monkeys beat you up.")  # Death outcome
+        print("You died. Game over.")  # Death message
+        start_game()  # Restart
+    else:
+        print("Invalid choice.")  # Invalid input
+        sixth_challenge()  # Retry
+
+# Function for the seventh challenge: girl asks to join your team
+def seventh_challenge():
+    global has_girl  # Access global variable
+    print("\nThe girl asks to join your team.")  # Scenario
+    print("A) Yes")  # Option A
+    print("B) No")  # Option B
+    print("C) Kill her")  # Option C
+    choice = input("Choose A, B, or C: ").strip().upper()  # Input
+
+    if choice == "A":  # Accept girl
+        has_girl = True  # Set flag true
+        print("She joins your team. You survive together.")  # Success message
+        eighth_challenge()  # Proceed to last challenge
+    elif choice == "B":  # Reject girl
+        has_girl = False  # Set flag false
+        print("She walks away and dies. You survive alone.")  # Narrative message
+        eighth_challenge()  # Continue without girl
+    elif choice == "C":  # Try to kill her
+        print("You try to kill her but stab yourself.")  # Death scenario
+        print("You died. Game over.")  # Death message
+        start_game()  # Restart game
+    else:
+        print("Invalid choice.")  # Input error
+        seventh_challenge()  # Retry input
+
+# Function for the eighth and final challenge: zombie horde encounter
+def eighth_challenge():
+    global has_girl  # Access global variable to check if girl joined
+    print("\nYou see a horde of zombies ahead.")  # Scenario description
+    print("A) Fight them")  # Option A
+    print("B) Run away")  # Option B
+    print("C) Pretend to be a zombie")  # Option C
+    choice = input("Choose A, B, or C: ").strip().upper()  # Input
+
+    if has_girl:  # If girl joined team
+        if choice == "A":  # Fight with girl
+            print("You and the girl fight and win. You both survive.")  # Win message
+        elif choice == "B":  # Run away
+            print("You both run but trip and get eaten.")  # Death scenario
+            print("You died. Game over.")  # Death message
+            start_game()  # Restart game
+        elif choice == "C":  # Pretend zombie
+            print("Zombies notice you're fake and eat you.")  # Death scenario
+            print("You died. Game over.")  # Death message
+            start_game()  # Restart game
+        else:
+            print("Invalid choice.")  # Input error
+            eighth_challenge()  # Retry
+    else:  # If girl did not join team
+        if choice == "A":  # Fight alone
+            print("You fight alone but get cut up.")  # Death outcome
+            print("You died. Game over.")  # Death message
+            start_game()  # Restart
+        elif choice == "B":  # Run alone
+            print("You run, trip, and your brain falls out.")  # Death scenario
+            print("You died. Game over.")  # Death message
+            start_game()  # Restart
+        elif choice == "C":  # Pretend zombie
+            print("They see through your disguise and kill you.")  # Death scenario
+            print("You died. Game over.")  # Death message
+            start_game()  # Restart
+        else:
+            print("Invalid choice.")  # Input error
+            eighth_challenge()  # Retry
+
+# Start the game by calling the start_game function
 start_game()
