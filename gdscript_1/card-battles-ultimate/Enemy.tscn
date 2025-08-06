@@ -1,20 +1,15 @@
 [gd_scene load_steps=3 format=3 uid="uid://c6m3uqpury5om"]
 
-[ext_resource type="Script" uid="uid://cfheysto0ro62" path="res://enemy.gd" id="1_2hac7"]
-[ext_resource type="Texture2D" uid="uid://d0aixnf46qv36" path="res://card_template.png" id="1_tt7e2"]
+[ext_resource type="Script" uid="uid://c1ppeel4jtywb" path="res://CardManager.gd" id="1_s7bn3"]
+[ext_resource type="PackedScene" uid="uid://dqmolkql7e7nm" path="res://card.tscn" id="1_tt7e2"]
 
-[node name="Node2D" type="Node2D"]
-script = ExtResource("1_2hac7")
+[node name="main" type="Node2D"]
 
-[node name="CardTemplate" type="Sprite2D" parent="."]
-texture_filter = 1
-position = Vector2(191, 200)
-scale = Vector2(6.23333, 6.23333)
-texture = ExtResource("1_tt7e2")
+[node name="card manager" type="Node2D" parent="."]
+script = ExtResource("1_s7bn3")
 
-[node name="HealthBar" type="TextureProgressBar" parent="."]
-offset_left = 155.0
-offset_top = 211.0
-offset_right = 239.0
-offset_bottom = 250.0
-value = 100.0
+[node name="cardimage" parent="card manager" instance=ExtResource("1_tt7e2")]
+position = Vector2(338, 395)
+
+[node name="cardimage2" parent="card manager" instance=ExtResource("1_tt7e2")]
+position = Vector2(883, 351)
