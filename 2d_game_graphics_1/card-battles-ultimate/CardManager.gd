@@ -1,11 +1,14 @@
 extends Node2D
 
+var card_being_dragged
+
 func _input(event):
 	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT:
 		if event.pressed:
 			print("left click")
-			raycast_check_for_card()  # Actually call the function
-		else:
+			var card = raycast_check_for_card()  # Actually call the function
+			if card:
+		else: card being dragged = card
 			print("left click released")
 
 func raycast_check_for_card():
@@ -16,7 +19,9 @@ func raycast_check_for_card():
 	parameters.collision_mask = 1 
 	var result = space_state.intersect_point(parameters) 
 	print("Raycast result: ", result)
-	
+	if result.size() > 0:
+		return result[0].get_parent()
+	return null
 	# Check if we hit any cards
 	if result.size() > 0:
 		for hit in result:
