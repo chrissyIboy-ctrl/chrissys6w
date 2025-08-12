@@ -1,6 +1,7 @@
-[gd_scene load_steps=7 format=3 uid="uid://dqmolkql7e7nm"]
+[gd_scene load_steps=8 format=3 uid="uid://dqmolkql7e7nm"]
 
 [ext_resource type="Texture2D" uid="uid://cwpqlj2db6jsk" path="res://card_template (5).png" id="1_kikvd"]
+[ext_resource type="Script" uid="uid://10usd4gxwc0j" path="res://Card.gd" id="1_rjlel"]
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_s7bn3"]
 
@@ -29,10 +30,11 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_tt7e2"]
 size = Vector2(279, 376)
 
-[node name="cardimage" type="Sprite2D"]
+[node name="card" type="Sprite2D"]
 texture_filter = 1
 scale = Vector2(6.23333, 6.23333)
 texture = SubResource("CompressedTexture2D_s7bn3")
+script = ExtResource("1_rjlel")
 
 [node name="card image" type="AnimatedSprite2D" parent="."]
 position = Vector2(-0.320854, 0.320856)
@@ -46,3 +48,5 @@ frame_progress = 0.153554
 position = Vector2(-0.40106, -6.98044e-06)
 scale = Vector2(0.160428, 0.160428)
 shape = SubResource("RectangleShape2D_tt7e2")
+
+[connection signal="mouse_entered" from="Area2D" to="." method="_on_area_2d_mouse_entered"]

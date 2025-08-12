@@ -1,40 +1,41 @@
 extends Node2D
 
-var card_being_dragged
+# ---- Variables and Data Types ----
+const DRAG_LAYER_MASK = 1   # Constant for the collision layer to detect cards
+var card_being_dragged: Node2D = null
+var offset_from_mouse := Vector2.ZERO
+var original_position := Vector2.ZERO
 
 func _input(event):
+	# Mouse button pressed
 	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT:
 		if event.pressed:
-			print("left click")
-			var card = raycast_check_for_card()  # Actually call the function
+			var card = raycast_check_for_card()
 			if card:
-		else: card being dragged = card
-			print("left click released")
+				card_being_dragged = card
+				offset_from_mouse = card.global_position - get_global_mouse_position()
+				original_position = card.global_position
+				card.rotation_degrees = 5 # ---- Modify node property #1: rotation ----
+		else:
+			if card_being_dragged:
+				card_being_dragged.global_position = original_position # ---- Modify node property #2: position ----
+				card_being_dragged.rotation_degrees = 0
+				card_being_dragged = null
 
-func raycast_check_for_card():
+	# Mouse motion while dragging
+	elif event is InputEventMouseMotion and card_being_dragged:
+		card_being_dragged.global_position = get_global_mouse_position() + offset_from_mouse
+
+func raycast_check_for_card() -> Node2D:
 	var space_state = get_world_2d().direct_space_state
-	var parameters = PhysicsPointQueryParameters2D.new()
-	parameters.position = get_global_mouse_position()  # Set the position
-	parameters.collide_with_areas = true
-	parameters.collision_mask = 1 
-	var result = space_state.intersect_point(parameters) 
-	print("Raycast result: ", result)
+	var params = PhysicsPointQueryParameters2D.new()
+	params.position = get_global_mouse_position()
+	params.collide_with_areas = true
+	params.collision_mask = DRAG_LAYER_MASK # Using our constant
+
+	var result = space_state.intersect_point(params)
 	if result.size() > 0:
-		return result[0].get_parent()
+		var collider = result[0]["collider"]
+		return collider.get_parent()
 	return null
-	# Check if we hit any cards
-	if result.size() > 0:
-		for hit in result:
-			var collider = hit["collider"]
-			print("Hit object: ", collider.name)
-			# You can add card-specific logic here
-			if collider.has_method("on_card_clicked"):
-				collider.on_card_clicked()
-
-# Called when the node enters the scene tree for the first time.
-func _ready() -> void:
-	pass # Replace with function body.
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
+	
